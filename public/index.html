@@ -15,10 +15,46 @@
 </head>
 
 <body>
+
+ <header id="top" class="main-header">
+      <span class="title">Welcome, New Spartan</span>
+      <h1>Spartan Start</h1>
+      <img class="arrow" src="Images/arrow.svg" alt="Down arrow">
+  </header>
+
+<!-- Local Storage -->
+ <div id="result"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) != "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+
+function set_status(taskID, taskStatus){
+    localStorage.setItem(taskID,taskStatus);
+}
+
+function get_status(taskID){
+    return localStorage.getItem(taskID);
+}
+
+set_status(1,"Done");
+alert(get_status (1));
+
+</script>
+
+<!-- End Local Storage -->
+
 <div class="container">
 
 	<div class="row">
-		<h1 class="text-center">This is Sparta!!!!</h1>
+		<!-- <h1 class="text-center">This is Sparta!!!!</h1> -->
 		<div class="col-md-1"></div>
 		<div class="col-md-2">
 			<div class="wrapper-checkbox">
@@ -33,7 +69,15 @@
 				<div class="accordion-section">
 					<a class="accordion-section-title" href="#accordion-1"><h4>Attend orientation</h4></a>
 					<div id="accordion-1" class="accordion-section-content">
-						<p>Check in to the university</p>
+						<p>
+							Welcome new Spartan! We are glad you made it. As a first task, you are required to
+							attend one orientation session which will be held on February 14th at 2pm at the Student Center.
+						</p>
+						<p>
+							<span><i class="fa fa-calendar"> </i><a href="http://ate.so/?QYyaBdx+google" target="_blank"> Add to Google Calendar </a></span>
+							<span style="margin-left:15px;"><i class="fa fa-calendar"> </i><a href="http://ate.so/?QYyaBdx+ical" target="_blank"> Add to ICal</a></span>
+							
+						</p>
 					</div>
 				</div>
 			</div>
@@ -86,6 +130,15 @@
 	</div>
 	
 </div>
+
+<div class="secondary-content t-border group"> 
+    
+		</div><!-- End .secondary-content -->
+    
+		<footer class="main-footer">
+			<p>All rights reserved NSU-Green-Team.</p>
+			<a href="#top">Back to top &raquo;</a>
+		</footer>
 
 
 <!-- LIBRARIES -->
