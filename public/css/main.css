@@ -304,9 +304,7 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 }
 
 /*---- Section Content ----*/
-.accordion-section{
-
-}
+.accordion-section{ }
 .accordion-section-title, a:focus, a:hover{color:#fdbb2f;}
 .accordion-section-title{color:#fff;}
 .accordion-section-title h4{font-weight:500;}
