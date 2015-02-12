@@ -42,7 +42,7 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 
 .checkbox {
   height: 70px;
-  width: 100%;
+  width: 65%;
   position: relative;
   background: #fff;
   display: inline-block;
@@ -108,4 +108,5 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 }
 .accordion-section-title, a:focus, a:hover{color:#fdbb2f;}
 .accordion-section-title{color:#fff;}
+.accordion-section-title h4{font-weight:500;}
 .accordion-section-content{padding: 10px 0 10px 10px; display: none;}
