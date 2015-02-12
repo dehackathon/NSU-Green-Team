@@ -37,3 +37,11 @@ $(document).ready(function() {
 
 	
 });
+
+function set_status(taskID, taskStatus){
+    localStorage.setItem(taskID,taskStatus);
+}
+
+function get_status(taskID){
+    return localStorage.getItem(taskID);
+}
