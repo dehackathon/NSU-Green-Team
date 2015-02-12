@@ -16,11 +16,11 @@
 }
 
 body {
-  color: #878787;
+  color: #000;
   margin: 0;
-  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+ a{color:#258d77;}
 h1,
 h2 {
   font-family: 'Abolition Regular', Helvetica, Arial, sans-serif;
@@ -311,6 +311,8 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 .accordion-section-title{color:#fff;}
 .accordion-section-title h4{font-weight:500;}
 .accordion-section-content{padding: 10px 0 10px 10px; display: none;}
+.accordion-section-content, a:focus, a:hover{color:#258d77;}
+.accordion-section-content{color:#000;}
 
 @media (max-width: 768px) {
   .primary-content,
