@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,500,200);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+* { box-sizing: border-box;}
+
+section {width: 75%;  margin: 100px auto;  text-align: center;}
+@media (max-width: 1600px) {  section {width: 75%;}}
+@media (max-width: 1250px) {section {width: 70%;}}
+@media (max-width: 850px) {section { width: 90%;}}
+
+.checkbox {
+  height: 70px;
+  width: 45%;
+  position: relative;
+  background: #fff;
+  display: inline-block;
+  margin: 15px 2% 15px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0 1px #252730;
+  cursor: pointer;
+}
+@media (max-width: 850px) {  .checkbox {    width: 80%;  }}
+.checkbox:hover {  background: #30c076;  color: white;}
+.checkbox:nth-child(1) .face {
+  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background-size: cover;
+}
+.checkbox:nth-child(2) .face {
+  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background-size: cover;
+}
+.checkbox:nth-child(3) .face {
+  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background-size: cover;
+}
+.checkbox:nth-child(4) .face {
+  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background-size: cover;
+}
+
+.figure-container { width: 20%;   height: 100%;  float: left;  padding: 10px 0 10px 15px;}
+
+@media (max-width: 450px) {  .figure-container { width: 30%; }}
+
+.figure-container .figure { background: transparent; width: 50px;  height: 50px;  border-radius: 50%;  box-shadow: 0 0 0 2px white;}
+
+.text {
+  width: 80%;
+  height: 100%;
+  margin-left: 20%;
+  text-align: left;
+  position: relative;
+  padding: 30px 10px;
+}
+@media (max-width: 450px) {  .text {width: 70%  margin-left: 30%;}}
+.text span {position: absolute; left: 10px;}
+
+
+.clicked {  background: #30c076 !important;  color: white;}
+
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  font-size: 2.3em;
+  line-height: 50px;
+}
