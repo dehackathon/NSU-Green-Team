@@ -267,19 +267,19 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 @media (max-width: 850px) {  .checkbox {    width: 80%;  }}
 .checkbox:hover {  background: #30c076;  color: white;}
 .checkbox:nth-child(1) .face {
-  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background: url("../images/spartan-logo.png");
   background-size: cover;
 }
 .checkbox:nth-child(2) .face {
-  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background: url("../images/spartan-logo.png");
   background-size: cover;
 }
 .checkbox:nth-child(3) .face {
-  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background: url("../images/spartan-logo.png");
   background-size: cover;
 }
 .checkbox:nth-child(4) .face {
-  background: url("http://a.espncdn.com/combiner/i?img=/i/teamlogos/ncaa/500/2450.png&w=50&h=50&transparent=true");
+  background: url("../images/spartan-logo.png");
   background-size: cover;
 }
 
