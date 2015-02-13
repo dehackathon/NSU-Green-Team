@@ -35,6 +35,10 @@ $(document).ready(function() {
     giveBadge('orientation');
   });
 
+  $('#getID').click(function(){
+    giveBadge('getID');
+  });
+
 if (hasBadge('registration')){
   $('#registration').click();
 }
@@ -45,5 +49,9 @@ if (hasBadge('advisor')){
 
 if (hasBadge('orientation')){
   $('#orientation').click();
+}
+
+if (hasBadge('getID')){
+  $('#getID').click();
 }
 });
