@@ -260,3 +260,5 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 .modal-body, .modal-image{text-align:center;}
 
 .input-hack{transform: scale(5); margin-top: 30px; margin-left: 25px !important; z-index: 10; opacity:0;}
+
+.progress{background-color: #fdbb2f;}
