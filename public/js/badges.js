@@ -5,7 +5,7 @@ function giveBadge(badgeName) {
     showBadge(badgeName);
   }
 
-  localStorage.setItem(badgeName, true);
+ // localStorage.setItem(badgeName, true);
 }
 
 function showBadge(badgeName) {
