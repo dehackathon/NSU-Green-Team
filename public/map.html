@@ -4,7 +4,9 @@
     <title>NSU Map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <style>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" rel="stylesheet">
+    <style type="text/css">
         html, body, #map-canvas {
             width: 100%;
             height: 100%;
@@ -12,28 +14,97 @@
             padding: 0px;
         }
     </style>
+<!--
+          _____                    _____                    _____
+         /\    \                  /\    \                  /\    \
+        /::\____\                /::\    \                /::\____\
+       /::::|   |               /::::\    \              /:::/    /
+      /:::::|   |              /::::::\    \            /:::/    /
+     /::::::|   |             /:::/\:::\    \          /:::/    /
+    /:::/|::|   |            /:::/__\:::\    \        /:::/    /
+   /:::/ |::|   |            \:::\   \:::\    \      /:::/    /
+  /:::/  |::|   | _____    ___\:::\   \:::\    \    /:::/    /      _____
+ /:::/   |::|   |/\    \  /\   \:::\   \:::\    \  /:::/____/      /\    \
+/:: /    |::|   /::\____\/::\   \:::\   \:::\____\|:::|    /      /::\____\
+\::/    /|::|  /:::/    /\:::\   \:::\   \::/    /|:::|____\     /:::/    /
+ \/____/ |::| /:::/    /  \:::\   \:::\   \/____/  \:::\    \   /:::/    /
+         |::|/:::/    /    \:::\   \:::\    \       \:::\    \ /:::/    /
+         |::::::/    /      \:::\   \:::\____\       \:::\    /:::/    /
+         |:::::/    /        \:::\  /:::/    /        \:::\__/:::/    /
+         |::::/    /          \:::\/:::/    /          \::::::::/    /
+         /:::/    /            \::::::/    /            \::::::/    /
+        /:::/    /              \::::/    /              \::::/    /
+        \::/    /                \::/    /                \::/____/
+         \/____/                  \/____/                  ~~
 
+          _____                    _____                    _____                    _____                    _____
+         /\    \                  /\    \                  /\    \                  /\    \                  /\    \
+        /::\    \                /::\    \                /::\    \                /::\    \                /::\____\
+       /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::|   |
+      /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \            /:::::|   |
+     /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /::::::|   |
+    /:::/  \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/|::|   |
+   /:::/    \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /:::/ |::|   |
+  /:::/    / \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /:::/  |::|   | _____
+ /:::/    /   \:::\ ___\  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\    \  /:::/   |::|   |/\    \
+/:::/____/  ___\:::|    |/:::/  \:::\   \:::|    |/:::/__\:::\   \:::\____\/:::/__\:::\   \:::\____\/:: /    |::|   /::\____\
+\:::\    \ /\  /:::|____|\::/   |::::\  /:::|____|\:::\   \:::\   \::/    /\:::\   \:::\   \::/    /\::/    /|::|  /:::/    /
+ \:::\    /::\ \::/    /  \/____|:::::\/:::/    /  \:::\   \:::\   \/____/  \:::\   \:::\   \/____/  \/____/ |::| /:::/    /
+  \:::\   \:::\ \/____/         |:::::::::/    /    \:::\   \:::\    \       \:::\   \:::\    \              |::|/:::/    /
+   \:::\   \:::\____\           |::|\::::/    /      \:::\   \:::\____\       \:::\   \:::\____\             |::::::/    /
+    \:::\  /:::/    /           |::| \::/____/        \:::\   \::/    /        \:::\   \::/    /             |:::::/    /
+     \:::\/:::/    /            |::|  ~|               \:::\   \/____/          \:::\   \/____/              |::::/    /
+      \::::::/    /             |::|   |                \:::\    \               \:::\    \                  /:::/    /
+       \::::/    /              \::|   |                 \:::\____\               \:::\____\                /:::/    /
+        \::/____/                \:|   |                  \::/    /                \::/    /                \::/    /
+                                  \|___|                   \/____/                  \/____/                  \/____/
+
+      _____                    _____                    _____                    _____
+     /\    \                  /\    \                  /\    \                  /\    \
+    /::\    \                /::\    \                /::\    \                /::\____\
+    \:::\    \              /::::\    \              /::::\    \              /::::|   |
+     \:::\    \            /::::::\    \            /::::::\    \            /:::::|   |
+      \:::\    \          /:::/\:::\    \          /:::/\:::\    \          /::::::|   |
+       \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/|::|   |
+       /::::\    \      /::::\   \:::\    \      /::::\   \:::\    \      /:::/ |::|   |
+      /::::::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \    /:::/  |::|___|______
+     /:::/\:::\    \  /:::/\:::\   \:::\    \  /:::/\:::\   \:::\    \  /:::/   |::::::::\    \
+    /:::/  \:::\____\/:::/__\:::\   \:::\____\/:::/  \:::\   \:::\____\/:::/    |:::::::::\____\
+   /:::/    \::/    /\:::\   \:::\   \::/    /\::/    \:::\  /:::/    /\::/    / ~~~~~/:::/    /
+  /:::/    / \/____/  \:::\   \:::\   \/____/  \/____/ \:::\/:::/    /  \/____/      /:::/    /
+ /:::/    /            \:::\   \:::\    \               \::::::/    /               /:::/    /
+/:::/    /              \:::\   \:::\____\               \::::/    /               /:::/    /
+\::/    /                \:::\   \::/    /               /:::/    /               /:::/    /
+ \/____/                  \:::\   \/____/               /:::/    /               /:::/    /
+                           \:::\    \                  /:::/    /               /:::/    /
+                            \:::\____\                /:::/    /               /:::/    /
+                             \::/    /                \::/    /                \::/    /
+                              \/____/                  \/____/                  \/____/
+-->
 
 </head>
 <body>
-    <form action="">
-        <select id="locations">
-            <option> Select Location </option>
-            <option value="0">William “Dick” Price Stadium</option>
-            <option value="1">L. Douglas Wilder Performing  Arts Center </option>
-            <option value="2">Student Services Center </option>
-            <option value="3">Student Center</option>
-            <option value="4">Marie V. McDemmond Center for  Applied Research </option>
-            <option value="5">Lyman Beecher Brooks Library </option>
-            <option value="6">Honor’s College -  Midrise Residence Hall </option>
-            <option value="7">Samuel F. Scott Hall</option>
-            <option value="8">Spartan Suites</option>
-        </select>
-    </form>
+    <select class="selectpicker" id="locations">
+        <option> Select Location </option>
+        <option value="0">William “Dick” Price Stadium</option>
+        <option value="1">L. Douglas Wilder Performing  Arts Center </option>
+        <option value="2">Student Services Center </option>
+        <option value="3">Student Center</option>
+        <option value="4">Marie V. McDemmond Center for  Applied Research </option>
+        <option value="5">Lyman Beecher Brooks Library </option>
+        <option value="6">Honor’s College -  Midrise Residence Hall </option>
+        <option value="7">Samuel F. Scott Hall</option>
+        <option value="8">Spartan Suites</option>
+    </select>
+
     <div id="map-canvas"></div>
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
 
     <script>
 
