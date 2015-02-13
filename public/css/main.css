@@ -23,7 +23,17 @@ h1 { font-size: 5.625rem; /* 90px/16px  */   text-transform: uppercase;   font-w
 
 h2 {  font-size: 3.3125em; /* 53px/16px  */  font-weight: normal;  line-height: 1.1;  margin: 0 0 .5em; /* 0 0 26px */}
 
-h3 { font-size: 1.25em; /* 20px/16px  */  color: #48525c;  line-height: 1.2;  margin-bottom: 1.7em; /* 34px */}
+h3 { font-size: 1.25em; /* 20px/16px  */  
+color: #48525c;  
+line-height: 1.2;  
+margin-bottom: 1.7em; /* 34px */}
+
+ul,
+ol {
+  margin: 30px 0;
+  list-style-type: none;
+}
+
 
 img {  max-width: 100%;   margin-bottom: 20px;  border-radius: 10px;}
 
@@ -66,9 +76,59 @@ a:active {  color: lightcoral;}
 
 .primary-content,.main-header,.main-footer {  text-align: center;}
 
+
 .primary-content {  padding-top: 25px;  padding-bottom: 95px;}
 
-.secondary-content {  padding-top: 80px;  padding-bottom: 70px;  border-bottom: 2px solid #dfe2e6;}
+
+.names {
+  color: #258d77;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.65rem;
+  text-align: center;
+  margin-left: -40px;
+
+}
+
+.coaches {
+  color: #eb0a00;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.65rem;
+  text-align: center;
+  margin-left: -40px;
+  
+}
+
+#coach_title {
+  /*margin-left: px;*/
+  margin-bottom: -20px;
+}
+
+#programmer_title {
+  color: #258d77;
+  margin-bottom: -20px;
+}
+
+.about_heads {
+  text-align: center;
+  color: #eb0a00;
+  font-family: 'Lato', sans-serif;
+  font-size: 2.65rem;
+}
+
+.primary-content {
+  padding-top: 25px;
+  padding-bottom: 95px;
+}
+
+.ul-programmers ul li {
+  text-align: center;
+}
+.secondary-content {
+  padding-top: 80px;
+  padding-bottom: 70px;
+  border-bottom: 2px solid #dfe2e6;
+}
+>>>>>>> Stashed changes
 
 .callout {  font-size: 1.25em;  border-bottom: 3px solid;  padding: 0 9px 3px;  margin-top: 20px;  display: inline-block;}
 
@@ -80,15 +140,11 @@ a:active {  color: lightcoral;}
 
 .primary-content, .secondary-content {  width: 75%;   padding-left: 50px;  padding-right: 50px;  margin: auto;  max-width: 960px;}
 
-.arrow {  width: 50px;  margin-top: 150px;}
+
+
+
 
 /* Floated Columns ------------------ */
-
-.resorts,.tips {  width: 46.5%;}
-
-.tips {  float: left;}
-
-.resorts {  float: right;}
 
 /* Float Clearfix ------------------ */
 
@@ -97,8 +153,12 @@ a:active {  color: lightcoral;}
 /* Media Queries -------------------- */
 
 @media (max-width: 1024px) {
-  .primary-content,   .secondary-content {width: 90%;  }
-  .wildlife {padding: 10% 12%;  margin: 50px 0 20px;  }
+
+  .primary-content,
+  .secondary-content {
+    width: 90%;
+  }
+
 }
 
 /*---- Joint Code ----*/
