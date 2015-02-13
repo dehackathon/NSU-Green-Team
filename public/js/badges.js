@@ -4,8 +4,8 @@ function giveBadge(badgeName) {
   if (! shown) {
     showBadge(badgeName);
   }
-
- // localStorage.setItem(badgeName, true);
+  
+  localStorage.setItem(badgeName, true);
 }
 
 function showBadge(badgeName) {
