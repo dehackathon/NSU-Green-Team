@@ -1,21 +1,40 @@
 $(document).ready(function() {
+
 	$('.checkbox').on('click', function()	{
 
+		// Get click target.
 		var target = $(this);
+
+		// Get associated instructions div.
 		var associatedId = target.data('associated');
 		var associated = $('#' + associatedId);
 
+		// Get associated input checkbox.
+		var input = target.find('input');
+
    	if (target.find('.figure-container div').hasClass('clicked')) {
 
+			// Unclicked.
 			target.find('.figure-container div').addClass('face').removeClass('entypo-check clicked').animate('slow');
 			associated.css('text-decoration', 'none');
-
+			input.prop("checked", false);
 	 	} else {
 
+			// Clicked.
 			target.find('.figure-container div').removeClass('face').addClass('entypo-check clicked').animate('slow');
 			associated.css('text-decoration', 'line-through');
+			input.prop("checked", true);
 	 	}
+
+		var progress = 0;
+
+		$('input:checked').each(function() {
+			progress += parseInt($(this).val());
+		});
+
+		$('.progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
 	});
+
     function close_accordion_section() {
         $('.accordion .accordion-section-title').removeClass('active');
         $('.accordion .accordion-section-content').slideUp(300).removeClass('open');
@@ -40,18 +59,6 @@ $(document).ready(function() {
     });
 
 });
-
-$(function() {
-	$('input').on('click', function() {
-		var emptyValue = 0;
-		$('input:checked').each(function() {
-			emptyValue += parseInt($(this).val());
-		});
-		$('.progress-bar').css('width', emptyValue + '%').attr('aria-valuenow', emptyValue);
-	});
-});
-
-
 
 $(function() {
     $('a[href*=#ar]:not([href=#a])').click(function() {
