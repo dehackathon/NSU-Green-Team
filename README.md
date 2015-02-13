@@ -4,7 +4,7 @@ SpartanStart
 The winning app of DE HackU 3.
 Team Members:
 Darryl Walden
-Lindah Kutot
+Lindah Kotut
 Ashley Hall
 John Ellis
 

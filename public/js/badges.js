@@ -1,57 +1,80 @@
-function giveBadge(badgeName) {
-  var shown = localStorage.getItem(badgeName);
+function hasBadge(badgeName) {
 
-  if (! shown) {
-    showBadge(badgeName);
+  var badgeSet = localStorage.getItem(badgeName);
+
+  if (badgeSet === 'true') {
+    return true;
+  } else {
+    return false;
   }
-  
-  localStorage.setItem(badgeName, true);
+}
+
+function giveBadge (badgeName) {
+
+  var has = hasBadge(badgeName);
+
+  if (! has) {
+    showBadge(badgeName);
+    localStorage.setItem(badgeName, 'true');
+  }
 }
 
 function showBadge(badgeName) {
+
   $('#modalImage').attr('src', 'images/'+badgeName+'.png')
   $('#myModal').modal();
 }
 
-function hasBadge(badgeName){
-   var badgeSet = localStorage.getItem(badgeName);
-   if(badgeSet){return true;}
-   else {return false;}
-}
 
 
 $(document).ready(function() {
   giveBadge('welcomeSpartans');
 
-  $('#registration').click(function(){
+  $('#registration').click(function() {
     giveBadge('registration');
   });
 
-  $('#advisor').click(function(){
+  $('#advisor').click(function() {
     giveBadge('advisor');
   });
 
-  $('#orientation').click(function(){
+  $('#orientation').click(function() {
     giveBadge('orientation');
   });
 
-  $('#getID').click(function(){
+  $('#getID').click(function() {
     giveBadge('getID');
   });
 
-if (hasBadge('registration')){
-  $('#registration').click();
-}
+  $('#mealPlan').click(function() {
+    giveBadge('mealPlan');
+  });
 
-if (hasBadge('advisor')){
-  $('#advisor').click();
-}
+  $('#housing').click(function() {
+    giveBadge('housing');
+  });
 
-if (hasBadge('orientation')){
-  $('#orientation').click();
-}
+  if (hasBadge('registration')) {
+    $('#registration').click();
+  }
 
-if (hasBadge('getID')){
-  $('#getID').click();
-}
+  if (hasBadge('advisor')) {
+    $('#advisor').click();
+  }
+
+  if (hasBadge('orientation')) {
+    $('#orientation').click();
+  }
+
+  if (hasBadge('getID')) {
+    $('#getID').click();
+  }
+
+  if (hasBadge('mealPlan')) {
+    $('#mealPlan').click();
+  }
+
+  if (hasBadge('housing')) {
+    $('#housing').click();
+  }
 });
