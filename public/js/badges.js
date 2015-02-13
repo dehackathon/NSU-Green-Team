@@ -8,11 +8,21 @@ function giveBadge(badgeName) {
   localStorage.setItem(badgeName, true);
 }
 
-function showBadge() {
+function showBadge(badgeName) {
+  $('#modalImage').attr('src', 'images/'+badgeName+'.png')
   $('#myModal').modal();
 }
 
 
 $(document).ready(function() {
-  giveBadge('welcome');
+  giveBadge('welcomeSpartans');
+  $('#registration').click(function(){
+    giveBadge('registration');
+  })
+  $('#advisor').click(function(){
+    giveBadge('advisor');
+  })
+  $('#orientation').click(function(){
+    giveBadge('orientation');
+  })
 });
