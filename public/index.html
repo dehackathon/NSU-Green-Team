@@ -28,15 +28,6 @@
  <div id="result"></div>
 
 <script>
-// Check browser support
-if (typeof(Storage) != "undefined") {
-    // Store
-    localStorage.setItem("lastname", "Smith");
-    // Retrieve
-    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-} else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-}
 
 function set_status(taskID, taskStatus){
     localStorage.setItem(taskID,taskStatus);
@@ -46,8 +37,7 @@ function get_status(taskID){
     return localStorage.getItem(taskID);
 }
 
-set_status(1,"Done");
-alert(get_status (1));
+
 
 </script>
 
