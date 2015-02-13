@@ -65,6 +65,9 @@ li {
 }
 
 /* Pseudo-classes ------------------ */
+.chevron:hover {
+  color: #fff;
+}
 
 a:link {
   color: rgb(255, 169, 73);
@@ -88,8 +91,8 @@ a:active {
 .main-header {
   padding-top: 170px;
   height: 850px;
-  background: linear-gradient(#27ae60, transparent 90%),
-              linear-gradient(0deg, #f1c40f, transparent),
+  background: linear-gradient(#258d77, transparent 90%), 
+              linear-gradient(0deg, #fdbb2f, transparent),
               #ffa949 url('../Images/Economic-Impact_2.jpg') no-repeat center;
   background-size: cover;
   color: white;
@@ -107,6 +110,15 @@ a:active {
   font-size: 1.25em; /* 20px/16px */
   line-height: 1.6; 
   color: initial;
+}
+
+#chevron {
+  padding-top: 100px;
+  color: #fff;
+}
+
+#chevron:hover{
+  color: #fdbb2f;
 }
 
 .primary-content,

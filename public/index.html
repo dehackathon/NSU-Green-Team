@@ -21,11 +21,39 @@
  <header id="top" class="main-header">
       <span class="title">Welcome, New Spartan</span>
       <h1>Spartan Start</h1>
-      <a href="#arrow_click" ><img class="arrow" src="Images/arrow.svg" alt="Down arrow"> </a>
+      <a href="#arrow_click" > <i class="fa fa-chevron-circle-down fa-3x chevron" id="chevron"></i> </a>
   </header>
 
 <!-- Local Storage -->
+<<<<<<< HEAD
+ <div id="result"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) != "undefined") {
+    // Store
+    localStorage.setItem("lastname", "Smith");
+    // Retrieve
+    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+
+function set_status(taskID, taskStatus){
+    localStorage.setItem(taskID,taskStatus);
+}
+
+function get_status(taskID){
+    return localStorage.getItem(taskID);
+}
+
+set_status(1,"Done");
+alert(get_status (1));
+
+</script>
+=======
 <div id="result"></div>
+>>>>>>> dbeb5108264b80e68fe7d3f56df2ec08fa0b4343
 
 <!-- End Local Storage -->
 
