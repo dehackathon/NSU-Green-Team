@@ -66,7 +66,11 @@ a:active {  color: lightcoral;}
 
 .title {
   font-size: 1.625rem; /* 26px/16px */
-  letter-spacing: .065em;   font-weight: 200;  border-bottom: 2px solid;  padding-bottom: 10px;}
+  letter-spacing: .065em;  
+   font-weight: 200;  
+   border-bottom: 2px solid;  
+   padding-bottom: 10px;
+ }
 
 .intro {  font-size: 1.25em; /* 20px/16px */  line-height: 1.6;  color: initial;}
 
@@ -106,6 +110,7 @@ a:active {  color: lightcoral;}
 #programmer_title {
   color: #258d77;
   margin-bottom: -20px;
+  margin-top: 40px;
 }
 
 .about_heads {
@@ -120,6 +125,11 @@ a:active {  color: lightcoral;}
   padding-bottom: 95px;
 }
 
+#url {
+  /*margin-top: 40px;*/
+  letter-spacing:  0.2em;
+}
+
 .ul-programmers ul li {
   text-align: center;
 }
@@ -128,7 +138,7 @@ a:active {  color: lightcoral;}
   padding-bottom: 70px;
   border-bottom: 2px solid #dfe2e6;
 }
->>>>>>> Stashed changes
+
 
 .callout {  font-size: 1.25em;  border-bottom: 3px solid;  padding: 0 9px 3px;  margin-top: 20px;  display: inline-block;}
 
@@ -239,7 +249,7 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 @media (max-width: 768px) {
   .primary-content, .secondary-content {    width: 100%;     padding: 20px;    border-top: none;  }
   .main-header {   max-height: 380px;    padding: 50px 25px 0;  }
-  .title {font-size: 1.3rem;    border: none;  }
+  .title {font-size: 1.rem;    border: none;  }
   h1 {font-size: 5rem; line-height: 1.1;  }
   .arrow {display: none;}
   .intro { font-size: 1rem;}
@@ -250,3 +260,5 @@ section {width: 100%;  margin: 0 auto;  text-align: center;}
 .modal-body, .modal-image{text-align:center;}
 
 .input-hack{transform: scale(5); margin-top: 30px; margin-left: 25px !important; z-index: 10; opacity:0;}
+
+.progress{background-color: #fdbb2f;}
