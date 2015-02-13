@@ -19,42 +19,44 @@
 var map;
 var markers = [];
 var currentMarker;
- 
+
 function initialize() {
- 
+
   var mapOptions = {
-   center: { lat: 36.848393, lng: -76.261167},
-   zoom: 16,
-   styles:[ {
-     stylers: [
-       { hue: "#258d77" },
-       { saturation: 0 }
-     ]
-   }, 
-   {
-     featureType: "road",
-     elementType: "geometry",
-     stylers: [
-       { lightness: 100 },
-       { visibility: "simplified" }
-     ]
-   }]
- };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+    center: { lat: 36.848393, lng: -76.261167},
+    zoom: 16,
+    styles: [
+      {
+        stylers: [
+          { hue: "#258d77" },
+          { saturation: 0 }
+       ]
+      }, {
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      }
+    ]
+  };
+
+  map = new google.maps.Map(
+    document.getElementById('map-canvas'),
+    mapOptions
+  );
+
   makeAllMarkers();
 
-$('#locations').change(function() {
-  if (currentMarker !== undefined){
-    hideMarker(currentMarker);
-  }
-  showMarker(this.value);
-  currentMarker=this.value;
-});
+  $('#locations').change(function() {
+    if (currentMarker !== undefined) {
+      hideMarker(currentMarker);
+    }
+    showMarker(this.value);
+    currentMarker=this.value;
+  });
 }
-
-
-
 
 function updateMarker(key){
   if (currentMarker !== undefined){
@@ -62,27 +64,38 @@ function updateMarker(key){
   }
   showMarker(key);
   currentMarker=key;
-
 }
 
 function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
 
 
-function makeMarker(lat, lng, title){
-    return new google.maps.Marker({
-      position:  new google.maps.LatLng(lat,lng),
-      title: title
+function makeMarker(lat, lng, title) {
+  var marker = new google.maps.Marker({
+    position:  new google.maps.LatLng(lat,lng),
+    animation: google.maps.Animation.DROP,
+    title: title
   });
+
+  var infowindow = new google.maps.InfoWindow({
+    content: '<h1>' + title + '</h1>'
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map, marker);
+  });
+
+  return marker;
 }
 
 function makeAllMarkers(){
-  var locations= [  
+  var locations= [
     {lat:36.84683, lng:-76.25986,title:'William “Dick” Price Stadium'},
     {lat:36.84773, lng:-76.26850,title:'L. Douglas Wilder Performing  Arts Center'},
     {lat:36.84839, lng:-76.26177,title:'Student Services Center'},
@@ -92,7 +105,7 @@ function makeAllMarkers(){
     {lat:36.84839, lng:-76.26117,title:'Honor’s College -  Midrise Residence Hall'},
     {lat:36.84839, lng:-76.26117,title:'Samuel F. Scott Hall'},
     {lat:36.84904, lng:-76.25864,title:'Spartan Suites'},
-    
+
   ];
   locations.forEach(function(element,index){
     markers.push(makeMarker(element.lat, element.lng, element.title));
@@ -102,12 +115,14 @@ function makeAllMarkers(){
 
 
 
-function showMarker(key){
-  markers[key].setMap(map); 
-  //center(lat, lng);
+function showMarker(key) {
+  var marker = markers[key];
+  marker.setMap(map);
+  marker.setAnimation(google.maps.Animation.DROP);
 }
+
 function hideMarker(key){
-  markers[key].setMap(null); 
+  markers[key].setMap(null);
 }
 var prodId = getParameterByName('id');
 //alert(prodId);
@@ -124,7 +139,7 @@ $(function() {
   </head>
   <body>
   <form action="">
-<select id="locations"  > 
+<select id="locations"  >
 //<option> Select Location </option>
 <option value="0">William “Dick” Price Stadium</option>
 <option value="1">L. Douglas Wilder Performing  Arts Center </option>
@@ -138,6 +153,6 @@ $(function() {
 </select>
 </form>
     <div id="map-canvas"></div>
-   
+
   </body>
 </html>
