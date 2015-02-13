@@ -13,16 +13,37 @@ function showBadge(badgeName) {
   $('#myModal').modal();
 }
 
+function hasBadge(badgeName){
+   var badgeSet = localStorage.getItem(badgeName);
+   if(badgeSet){return true;}
+   else {return false;}
+}
+
 
 $(document).ready(function() {
   giveBadge('welcomeSpartans');
+
   $('#registration').click(function(){
     giveBadge('registration');
-  })
+  });
+
   $('#advisor').click(function(){
     giveBadge('advisor');
-  })
+  });
+
   $('#orientation').click(function(){
     giveBadge('orientation');
-  })
+  });
+
+if (hasBadge('registration')){
+  $('#registration').click();
+}
+
+if (hasBadge('advisor')){
+  $('#advisor').click();
+}
+
+if (hasBadge('orientation')){
+  $('#orientation').click();
+}
 });
